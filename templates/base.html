@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title> Online Service Provider for your House Needs</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'assets/css/chblue.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'assets/css/theme-responsive.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'assets/css/dtb/jquery.dataTables.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'assets/css/select2.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'assets/css/toastr.min.css' %}" rel="stylesheet" media="screen">        
+    <script type="text/javascript" src="{% static 'assets/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery-ui.1.10.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/toastr.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/modernizr.js' %}"></script>
+</head>
+<body>
+    <div id="layout">
+        {% if not request.user.is_service %}
+            <header id="header" class="header-v3">
+                <p class="text-primary text-right mr-5"> Are you a Service Provider?<a href="{% url 'add_service_provider' %}" class="text-danger"> Register Yourself</a><p>
+                    
+            </header>
+            {% endif %}
+        <header class="header-v3">
+            <nav class="flat-mega-menu">
+                <label for="mobile-button"> <i class="fa fa-bars"></i></label>
+                <input id="mobile-button" type="checkbox">
+                
+                <ul class="collapse">
+                    <li class="title">
+                        <a href="{% url 'index' %}"><img src="{% static 'images/HSMSLOGO.png' %}"></a>
+                    </li>
+                    <li> <a href="javascript:void(0);">Air Conditioners</a>
+                        <ul class="drop-down one-column hover-fade">
+                            {% for Ac in Ac %}
+                            <li><a href="{% url 'product'  Ac.id%}">{{Ac.sub_category_name}}</a></li>
+                            {% endfor %}
+                           
+                        </ul>
+                    </li>
+                    <li> <a href="#">Appliances</a>
+                        <ul class="drop-down one-column hover-fade">
+                            {% for appliances in appliances %}
+                            <li><a href="{% url 'product' appliances.id%}">{{appliances.sub_category_name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li> <a href="#">Home Needs</a>
+                        <ul class="drop-down one-column hover-fade">
+                            {% for home_need in home_need %}
+                            <li><a href="{% url 'product' home_need.id %}">{{home_need.sub_category_name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li> <a href="#">Home Cleaning</a>
+                        <ul class="drop-down one-column hover-fade">
+                            {% for home_cleaning in home_cleaning %}
+                            <li><a href="{% url 'product' home_cleaning.id%}">{{home_cleaning.sub_category_name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li> <a href="#">Special Services</a>
+                        <ul class="drop-down one-column hover-fade">
+                            {% for special_services in special_services %}
+                            <li><a href="{% url 'product' special_services.id%}">{{special_services.sub_category_name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                    <li class="login-form"> <div class="dropdown">
+                        <img src="{% static 'images/User.png' %}" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"  style="width: 56%;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="dropdown-menu px-2" aria-labelledby="dropdownMenuButton">
+                            {% if request.user.is_service %}
+                          <a class="dropdown-item py-2" href="{% url 'dashboard' %}">Dashboard</a>
+                          {% else %}
+                          <a class="dropdown-item py-2" href="{% url 'my_booking' %}">My Booking</a>
+                          {% endif %}
+                          <a class="dropdown-item py-2" href="{% url 'edit' %}">Edit Profile</a>
+                          <a class="dropdown-item py-2" href="{% url 'change_password' %}">Change Password</a>
+                          <a class="dropdown-item py-2" href="{% url 'user_logout' %}">Logout</a>
+                        </div>
+                      </div></li>      
+                    {% else %}
+                    
+                    <li class="login-form"> <a href="{% url 'register' %}" title="Register">Register</a></li>
+                    <li class="login-form"> <a href="{% url 'user_login' %}" title="Login">Login</a></li>
+
+                    {% endif %}
+                    <li class="search-bar">
+                    </li>
+                </ul>
+            </nav>
+        </header>
+{% block body %}{% endblock body %}
+
+</div>
+<script type="text/javascript" src="{% static 'assets/js/nav/jquery.sticky.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/totop/jquery.ui.totop.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/accordion/accordion.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/rs-plugin/js/jquery.themepunch.tools.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/maps/gmap3.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/fancybox/jquery.fancybox.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/carousel/carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/filters/jquery.isotope.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/twitter/jquery.tweet.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/flickr/jflickrfeed.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/theme-options/theme-options.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/theme-options/jquery.cookies.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/bootstrap/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/bootstrap/bootstrap-slider.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/dtb/jquery.dataTables.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/dtb/jquery.table2excel.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/dtb/script.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/select2.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery.validate.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/validation-rule.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/bootstrap3-typeahead.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/main.js' %}"></script>
+<script type="text/javascript">
+jQuery(document).ready(function () {
+    jQuery('.tp-banner').show().revolution({
+        dottedOverlay: "none",
+        delay: 5000,
+        startwidth: 1170,
+        startheight: 480,
+        minHeight: 250,
+        navigationType: "none",
+        navigationArrows: "solo",
+        navigationStyle: "preview1"
+    });
+});
+</script>
+<script type="text/javascript">
+    $(document).ready (function(){
+      
+        window.setTimeout(function () { 
+         $("#alert").hide("slow"); 
+        }, 1000);                   
+  });
+  $(document).ready (function(){
+      
+    window.setTimeout(function () { 
+     $(".alert").hide("slow"); 
+    }, 1000);                   
+});
+   
+
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% extends 'service/base.html' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="mx-5 my-5 col-lg-10">
+            <h3 class="text-center">Add Service</h3>
+            <hr>
+            <form action="" method='post' enctype=multipart/form-data>
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Enter Service Title" name="title">
+                </div>
+                <div class="form-group">
+                  <label for="Description">Description</label>
+                  <input type="text" class="form-control" id="Description" placeholder="Description" name="description">
+                </div>
+
+                <label for="" >Category</label>
+                <select name="category" class="form-control">
+                    {% for category in category %}
+                    
+                    <option value="{{category.id}}">{{category.name}}</option>
+                    {% endfor %}
+                  </select>
+
+                  <label for="" >Sub Category</label>
+                  <select name="sub_category" class="form-control">
+                    {% for sub in sub %}
+                    
+                    <option value="{{sub.id}}">{{sub.sub_category_name}}</option>
+                    {% endfor %}
+                  </select>
+
+                  <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" class="form-control" id="price" placeholder="Enter Price" name="price">
+                  </div>
+                  <div class="form-group">
+                    <label for="discount">Discount</label>
+                    <input type="number" class="form-control" id="discount" placeholder="Enter Discount" name="discount">
+                  </div>
+                  <div class="form-group">
+                    <label for="Feature">Feature</label>
+                    <input type="text" class="form-control" id="Feature" placeholder="Enter Feature" name="Feature">
+                  </div>
+                  <div class="form-group">
+                    <label for="image">image</label>
+                    <input type="file" class="form-control" id="image" placeholder="image" name="image">
+                  </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+              </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}

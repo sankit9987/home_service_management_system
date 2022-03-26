@@ -1,0 +1,57 @@
+{% extends 'service/base.html' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        {% for ser in ser %}
+        <div class="mx-5 my-5 col-lg-10">
+            <h3 class="text-center">{{ser.title}}</h3>
+            <hr>
+            <form action="" method='post' enctype=multipart/form-data>
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">Service Image:</label>
+                    <img src="{{ser.image.url}}"  class="text-center px-5"alt="" style="height:67px">
+                  </div>
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input type="text" class="form-control" value="{{ser.title}}" id="title" aria-describedby="emailHelp" placeholder="Enter Service Title" name="title">
+                </div>
+                <div class="form-group">
+                  <label for="Description">Description</label>
+                  <input type="text" class="form-control" id="Description" value="{{ser.description}}"placeholder="Description" name="description">
+                </div>
+
+                <label for="" >Category</label>
+                <select name="category" class="form-control" readonly disabled>
+                    <option value="{{ser.category.id}}">{{ser.category.name}}</option>
+                  </select>
+
+                  <label for="" >Sub Category</label>
+                  <select name="sub_category" class="form-control " readonly disabled>
+                    <option value="{{ser.sub.id}}">{{ser.service_sub_category.sub_category_name}}</option>
+                  </select>
+
+                  <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" class="form-control" value="{{ser.price}}" id="price" placeholder="Enter Price" name="price">
+                  </div>
+                  <div class="form-group">
+                    <label for="discount">Discount</label>
+                    <input type="number" class="form-control" value="{{ser.discount}}" id="discount" placeholder="Enter Discount" name="discount">
+                  </div>
+                  <div class="form-group">
+                    <label for="Feature">Feature</label>
+                    <input type="text" class="form-control" value="{{ser.feature}}" id="Feature" placeholder="Enter Feature" name="Feature">
+                  </div>
+                  <div class="form-group">
+                    <label for="image">image</label>
+                    <input type="file" class="form-control" id="image" placeholder="image" name="image">
+                  </div>
+                <button type="submit" class="btn btn-primary">update</button>
+              </form>
+            </div>
+        </div>
+        {% endfor %}
+</div>
+{% endblock body %}

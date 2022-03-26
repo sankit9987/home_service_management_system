@@ -1,0 +1,42 @@
+{% extends 'service/base.html' %}
+
+{% block body %}
+<div class="container">
+  
+  <div class="row">
+   
+    <div class="mx-5 my-5 col-lg-10">
+        {% if messages %}
+  {% for msg in messages %}  
+  <h3 class="text-center text-light bg-success my-3 py-2" id="alert">{{msg}}</h3>
+   {% endfor %}
+    {% endif %} 
+      <a href="{% url 'add_service' %}" class="btn btn-success mb-4 float-right">Add +</a>
+
+    <table class="table table-hover" id="geniustable55">
+        <thead>
+          <tr>
+            <th scope="row">Sr No.</th>
+            <th scope="col">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+         
+          {% for ser in ser %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td><img src="{{ser.image.url}}" alt="service"></td>
+            <td>{{ser.title}}</td>
+            <td>{{ser.price}}</td>
+            <td><a href="{% url 'service_view' ser.id %}" style="color:black;" title="View Service"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="{% url 'service_delete' ser.id %}" style="color:black;" title="Delete Service"><i class="fa fa-trash-o px-1" onclick="return confirm('Are you sure you want to remove')"aria-hidden="true"></i></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+</div>
+</div>
+{% endblock body %}

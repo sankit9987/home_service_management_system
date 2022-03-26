@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <div id="layout">
+        <div class="info-head">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="visible-md visible-lg text-left">
+                            <li><a href="tel:+911234567890"><i class="fa fa-phone"></i> +91-1234567890</a></li>
+                            <li><a href="mailto:contact@surfsidemedia.in"><i class="fa fa-envelope"></i>
+                                    contact@surfsidemedia.in</a></li>
+                        </ul>
+                        <ul class="visible-xs visible-sm">
+                            <li class="text-left"><a href="tel:+911234567890"><i class="fa fa-phone"></i>
+                                    +91-1234567890</a></li>
+                            <li class="text-right"><a href="{% url 'change_location' %}"><i class="fa fa-map-marker"></i>
+                                    Faridabad, Haryana</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="visible-md visible-lg text-right">
+                            <li><i class="fa fa-comment"></i> Live Chat</li>
+                            <li><a href="{% url 'change_location' %}"><i class="fa fa-map-marker"></i> Faridabad, Haryana</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title-01 honmob">
+            <div class="bg_parallax image_01_parallax"></div>
+            <div class="opacy_bg_02">
+                <div class="container">
+                    <h1>AC Services</h1>
+                    <div class="crumbs">
+                        <ul>
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li>/</li>
+                            <li>AC</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="content-central">
+            <div class="container">
+                <div class="row" style="margin-top: -30px;">
+                    <div class="titles">
+                        <h2>AC <span>Services</span></h2>
+                        <i class="fa fa-plane"></i>
+                        <hr class="tall">
+                    </div>
+                </div>
+            </div>
+            <div class="content_info" style="margin-top: -70px;">
+                <div>
+                    <div class="container">
+                        <div class="portfolioContainer">
+                            <div class="col-xs-6 col-sm-4 col-md-3 nature hsgrids"
+                                style="padding-right: 5px;padding-left: 5px;">
+                                <a class="g-list" href="#">
+                                    <div class="img-hover">
+                                        <img src="images/services/thumbnails/thumbnail.jpg" alt=""
+                                            class="img-responsive">
+                                    </div>
+                                    <div class="info-gallery">
+                                        <h3>AC Wet Servicing</h3>
+                                        <hr class="separator">
+                                        <p>AC Wet Servicing</p>
+                                        <div class="content-btn"><a href="#"
+                                                class="btn btn-primary">Book Now</a></div>
+                                        <div class="price"><span>&#36;</span><b>From</b>200</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-4 col-md-3 nature hsgrids"
+                                style="padding-right: 5px;padding-left: 5px;">
+                                <a class="g-list" href="#">
+                                    <div class="img-hover">
+                                        <img src="images/services/thumbnails/thumbnail.jpg" alt=""
+                                            class="img-responsive">
+                                    </div>
+                                    <div class="info-gallery">
+                                        <h3>AC Dry Servicing</h3>
+                                        <hr class="separator">
+                                        <p>AC Dry Servicing</p>
+                                        <div class="content-btn"><a href="#"
+                                                class="btn btn-primary">Book Now</a></div>
+                                        <div class="price"><span>&#36;</span><b>From</b>300</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-4 col-md-3 nature hsgrids"
+                                style="padding-right: 5px;padding-left: 5px;">
+                                <a class="g-list" href="#">
+                                    <div class="img-hover">
+                                        <img src="images/services/thumbnails/thumbnail.jpg" alt=""
+                                            class="img-responsive">
+                                    </div>
+                                    <div class="info-gallery">
+                                        <h3>AC Installation</h3>
+                                        <hr class="separator">
+                                        <p>AC Installation</p>
+                                        <div class="content-btn"><a href="#"
+                                                class="btn btn-primary">Book Now</a></div>
+                                        <div class="price"><span>&#36;</span><b>From</b>320</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-4 col-md-3 nature hsgrids"
+                                style="padding-right: 5px;padding-left: 5px;">
+                                <a class="g-list" href="#">
+                                    <div class="img-hover">
+                                        <img src="images/services/thumbnails/thumbnail.jpg" alt=""
+                                            class="img-responsive">
+                                    </div>
+                                    <div class="info-gallery">
+                                        <h3>AC Uninstallation</h3>
+                                        <hr class="separator">
+                                        <p>AC Uninstallation</p>
+                                        <div class="content-btn"><a href="#"
+                                                class="btn btn-primary">Book Now</a></div>
+                                        <div class="price"><span>&#36;</span><b>From</b>500</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-4 col-md-3 nature hsgrids"
+                                style="padding-right: 5px;padding-left: 5px;">
+                                <a class="g-list" href="#">
+                                    <div class="img-hover">
+                                        <img src="images/services/thumbnails/thumbnail.jpg" alt=""
+                                            class="img-responsive">
+                                    </div>
+                                    <div class="info-gallery">
+                                        <h3>AC Gas Top Up</h3>
+                                        <hr class="separator">
+                                        <p>AC Gas Top Up</p>
+                                        <div class="content-btn"><a href="#"
+                                                class="btn btn-primary">Book Now</a></div>
+                                        <div class="price"><span>&#36;</span><b>From</b>320</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-4 col-md-3 nature hsgrids"
+                                style="padding-right: 5px;padding-left: 5px;">
+                                <a class="g-list" href="#">
+                                    <div class="img-hover">
+                                        <img src="images/services/thumbnails/thumbnail.jpg" alt=""
+                                            class="img-responsive">
+                                    </div>
+                                    <div class="info-gallery">
+                                        <h3>AC Gas Refill</h3>
+                                        <hr class="separator">
+                                        <p>AC Gas Refill</p>
+                                        <div class="content-btn"><a href="#"
+                                                class="btn btn-primary">Book Now</a></div>
+                                        <div class="price"><span>&#36;</span><b>From</b>510</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-4 col-md-3 nature hsgrids"
+                                style="padding-right: 5px;padding-left: 5px;">
+                                <a class="g-list" href="#">
+                                    <div class="img-hover">
+                                        <img src="images/services/thumbnails/thumbnail.jpg" alt=""
+                                            class="img-responsive">
+                                    </div>
+                                    <div class="info-gallery">
+                                        <h3>AC Repair</h3>
+                                        <hr class="separator">
+                                        <p>AC Repair</p>
+                                        <div class="content-btn"><a href="#"
+                                                class="btn btn-primary">Book Now</a></div>
+                                        <div class="price"><span>&#36;</span><b>From</b>330</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </section>
+    </div>
+{% endblock body %}

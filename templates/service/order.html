@@ -1,0 +1,35 @@
+{% extends 'service/base.html' %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="mx-5 my-5 col-lg-10">
+    <table class="table table-hover " id="geniustable55">
+        <thead>
+          <tr>
+            <th scope="row">Sr No.</th>
+            <th scope="col">Customer E-mail</th>
+            <th scope="col">Service Name</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+         
+          {% for order in order %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{order.customer.user.email}}</td>
+            <td>{{order.ser.service_sub_category}}</td>
+            <td>{{order.amount}}</td>
+            <td>{{order.status}}</td>
+            <td><a href="{% url 'view_order' order.id%}" style="color:black;" title="View Order"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+</div>
+</div>
+{% endblock body %}

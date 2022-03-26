@@ -1,0 +1,391 @@
+       {% extends 'base.html' %}
+       {% load static %}
+       {% block body %}
+       {% if messages %}
+       {% for msg in messages %} 
+       <h3 class="text-center text-success" id="alert">{{msg}} </h3>
+    {% endfor %}
+       {% endif %}
+       <section class="tp-banner-container">
+            <div class="tp-banner">
+                <ul>
+                    <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000"
+                        data-saveperformance="off" data-title="Slide">
+                        <img src="{% static 'assets/img/slide/1.jpg' %}" alt="fullslide1" data-bgposition="center center"
+                            data-kenburns="on" data-duration="6000" data-ease="Linear.easeNone" data-bgfit="130"
+                            data-bgfitend="100" data-bgpositionend="right center">
+                    </li>
+                    <li data-transition="slidehorizontal" data-slotamount="1" data-masterspeed="1000"
+                        data-saveperformance="off" data-title="Slide">
+                        <img src="{% static 'assets/img/slide/2.jpg' %}" alt="fullslide1" data-bgposition="top center"
+                            data-kenburns="on" data-duration="6000" data-ease="Linear.easeNone" data-bgfit="130"
+                            data-bgfitend="100" data-bgpositionend="right center">
+                    </li>
+                </ul>
+                
+            </div>
+            <div class="filter-title">
+                <div class="title-header">
+                    <h2 style="color:#fff;">BOOK A SERVICE</h2>
+                    <p class="lead">Book a service at very affordable price, </p>
+                </div>
+                <div class="filter-header">
+                    <form id="sform" action="{% url 'search' %}" method="get">                        
+                        <input type="text" id="q" name="q" required="required" placeholder="What Services do you want?"
+                            class="input-large typeahead" autocomplete="off">
+                        <input type="submit" name="submit" value="Search">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="content-central">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul id="sponsors" class="tooltip-hover">
+                                <li data-toggle="tooltip" title="" data-original-title="AC"> <a
+                                        href="{% url 'product' '2'%}"><img src="{% static 'images/ac.jpg' %}" style="    height: 55px;
+                                        margin-top: 14px;
+                                        width: 68px;"
+                                            alt="AC"></a></li>
+                                <li data-toggle="tooltip" title="" data-original-title="Washing Machiner"> <a
+                                        href="{% url 'product' '11'%}"><img src="{% static 'images/washing-machine.jpg' %}"style="    height: 55px;
+                                        margin-top: 14px;
+                                        width: 68px;"
+                                            alt="Shower Filter"></a></li>
+                                <li data-toggle="tooltip" title="" data-original-title="Home Cleaning"> <a
+                                        href="{% url 'product' '14'%}"><img src="{% static 'images/home cleaning.jpg' %}"style="    height: 55px;
+                                        margin-top: 14px;
+                                        width: 68px;"
+                                            alt="Home Cleaning"></a></li>
+                                <li data-toggle="tooltip" title="" data-original-title="cars and Bikes"> <a
+                                        href="{% url 'product' '18'%}"><img src="{% static 'images/car and bike.jpg' %}"style="    height: 55px;
+                                        margin-top: 14px;
+                                        width: 68px;"
+                                            alt="Carpentry"></a></li>
+                                <li data-toggle="tooltip" title="" data-original-title="Pest Control"> <a
+                                        href="{% url 'product' '17'%}"><img src="{% static 'images/pest-control.jpg' %}"style="    height: 55px;
+                                        margin-top: 14px;
+                                        width: 68px;"
+                                            alt="Pest Control"></a></li>
+                                 </ul>
+                        </div>
+                </div>
+            </div>
+            <div class="semiboxshadow text-center">
+                <img src="assets/img/img-theme/shp.png" class="img-responsive" alt="">
+            </div>
+            <div class="content_info">
+                    <div class="container">
+                        <div class="row">
+                            <div class="titles">
+                                <h2>Best Class <span>Choices</span> of Services</h2>
+                                <i class="fa fa-plane"></i>
+                                <hr class="tall">
+                            </div>
+                        </div>
+                        <div class="portfolioContainer" style="margin-top: -50px;">
+                            <div class="col-xs-6 col-lg-4 col-sm-4 col-md-3 hsgrids"
+                                style="padding-right: 5px;padding-left: 5px;">
+                                <a class="g-list" href="{% url 'service_details' '1' %}">
+                                    <div class="img-hover">
+                                        <img src="{% static 'images/ac.jpg' %}" alt="AC Dry Servicing"
+                                            class="img-responsive">
+                                    </div>
+                                    <div class="info-gallery">
+                                        <h3>AC Dry Servicing</h3>
+                                        <hr class="separator">
+                                        <p>AC Dry Servicing</p>
+                                        <div class="content-btn"><a href="{% url 'service_details' '2'%}"
+                                                class="btn btn-primary">Book Now</a></div>
+                                        <div class="price"><span>&#36;</span><b>From</b>300</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-3 hsgrids"
+                                style="padding-right: 5px;padding-left: 5px;">
+                                <a class="g-list" href="{% url 'service_details' '1'%}">
+                                    <div class="img-hover">
+                                        <img src="{% static 'images/installation.jpeg' %}" alt="AC Installation"
+                                            class="img-responsive">
+                                    </div>
+                                    <div class="info-gallery">
+                                        <h3>AC Installation</h3>
+                                        <hr class="separator">
+                                        <p>AC Installation</p>
+                                        <div class="content-btn"><a href="#"
+                                                class="btn btn-primary">Book Now</a></div>
+                                        <div class="price"><span>&#36;</span><b>From</b>320</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-4 col-md-3 hsgrids"
+                                style="padding-right: 5px;padding-left: 5px;">
+                                <a class="g-list" href="#">
+                                    <div class="img-hover">
+                                        <img src="{% static 'images/gas.jpg' %}" alt="AC Gas Top Up"
+                                            class="img-responsive">
+                                    </div>
+                                    <div class="info-gallery">
+                                        <h3>AC Gas Top Up</h3>
+                                        <hr class="separator">
+                                        <p>AC Gas Top Up</p>
+                                        <div class="content-btn"><a href="{% url 'service_details' '4'%}"
+                                                class="btn btn-primary">Book Now</a></div>
+                                        <div class="price"><span>&#36;</span><b>From</b>320</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-3 hsgrids"
+                                style="padding-right: 5px;padding-left: 5px;">
+                                <a class="g-list" href="#">
+                                    <div class="img-hover">
+                                        <img src="{% static 'images/refill.jpg' %}" alt="AC Gas Refill"
+                                            class="img-responsive">
+                                    </div>
+                                    <div class="info-gallery">
+                                        <h3>AC Gas Refill</h3>
+                                        <hr class="separator">
+                                        <p>AC Gas Refill</p>
+                                        <div class="content-btn"><a href="{% url 'service_details' '4'%}"
+                                                class="btn btn-primary">Book Now</a></div>
+                                        <div class="price"><span>&#36;</span><b>From</b>510</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content_info">
+                <div class="bg-dark color-white border-top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 ">
+                                <div class="services-lines-info">
+                                    <h2>WELCOME TO DIVERSIFIED</h2>
+                                    <p class="lead">
+                                        Book best services at one place.
+                                        <span class="line"></span>
+                                    </p>
+
+                                    <p>Find a wide variety of home services.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <ul class="services-lines">
+                                    <li>
+                                        <a href="{% url 'service_details' '10'%}">
+                                            <div class="item-service-line">
+                                                <i class="fa"><img class="icon-img"
+                                                        src="{% static 'images/ac.jpg' %}" height= 79px;></i>
+                                                <h5>AC</h5>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'service_details' '14' %}">
+                                            <div class="item-service-line">
+                                                <i class="fa"><img class="icon-img"
+                                                        src="{% static 'images/bedroom.png' %}"height= 79px;></i>
+                                                <h5>Home Cleaning</h5>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'service_details' '18' %}">
+                                            <div class="item-service-line">
+                                                <i class="fa"><img class="icon-img"
+                                                        src="{% static 'images/car and bike.jpg' %}"height= 79px;></i>
+                                                <h5>Cars and Bikes</h5>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'service_details' '14' %}">
+                                            <div class="item-service-line">
+                                                <i class="fa"><img class="icon-img"
+                                                        src="{% static 'images/home cleaning.jpg' %}"height= 79px;></i>
+                                                <h5>Home Cleaning</h5>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'service_details' '17'%}">
+                                            <div class="item-service-line">
+                                                <i class="fa"><img class="icon-img"
+                                                        src="{% static 'images/pest-control.jpg ' %}" height= 79px;></i>
+                                                <h5>Pest Control</h5>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="{% url 'service_details' '9'%}">
+                                            <div class="item-service-line">
+                                                <i class="fa"><img class="icon-img"
+                                                        src="{% static 'images/tv.jpg' %}" height= 79px;></i>
+                                                <h5>TV</h5>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'service_details' '12'%}">
+                                            <div class="item-service-line">
+                                                <i class="fa"><img class="icon-img"
+                                                        src="{% static 'images/Refrigerator.jpg' %}" height= 79px;></i>
+                                                <h5>Refrigerator</h5>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="container">
+                    <div class="row">
+                        <div class="titles">
+                            <h2><span>Appliance</span>Services</h2>
+                            <i class="fa fa-plane"></i>
+                            <hr class="tall">
+                        </div>
+                    </div>
+                </div>
+                <div id="boxes-carousel">
+                    <div>
+                        <a class="g-list" href="{% url 'service_details' '4'%}">
+                            <div class="img-hover">
+                                <img src="{% static 'images/ac.jpg' %}" alt="" class="img-responsive"   style="  height: 222px;
+                                width: 389px;">
+                            </div>
+
+                            <div class="info-gallery">
+                                <h3>AC Wet Servicing</h3>
+                                <hr class="separator">
+                                <p>AC Wet Servicing</p>
+                                <div class="content-btn"><a href="#"
+                                        class="btn btn-primary">Book Now</a></div>
+                                <div class="price"><span>&#36;</span><b>From</b>200</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="g-list" href="{% url 'service_details' '16'%}">
+                            <div class="img-hover">
+                                <img src="{% static 'images/bedroom.png' %}" alt="" class="img-responsive">
+                            </div>
+
+                            <div class="info-gallery">
+                                <h3>Bedroom Deep Cleaning</h3>
+                                <hr class="separator">
+                                <p>Bedroom Deep Cleaning</p>
+                                <div class="content-btn"><a href="#"
+                                        class="btn btn-primary">Book Now</a></div>
+                                <div class="price"><span>&#36;</span><b>From</b>300</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="g-list" href="{% url 'service_details' '19'%}">
+                            <div class="img-hover">
+                                <img src="{% static 'images/services/thumbnails/thumbnail.jpg' %}" alt="" class="img-responsive">
+                            </div>
+
+                            <div class="info-gallery">
+                                <h3>Dining Chair Shampooing</h3>
+                                <hr class="separator">
+                                <p>Dining Chair Shampooing</p>
+                                <div class="content-btn"><a href="#"
+                                        class="btn btn-primary">Book Now</a></div>
+                                <div class="price"><span>&#36;</span><b>From</b>400</div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div>
+                        <a class="g-list" href="#">
+                            <div class="img-hover">
+                                <img src="{% static 'images/services/thumbnails/thumbnail.jpg' %}" alt="" class="img-responsive">
+                            </div>
+
+                            <div class="info-gallery">
+                                <h3>Fabric Sofa Shampooing</h3>
+                                <hr class="separator">
+                                <p>Fabric Sofa Shampooing</p>
+                                <div class="content-btn"><a href="#"
+                                        class="btn btn-primary">Book Now</a></div>
+                                <div class="price"><span>&#36;</span><b>From</b>211</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="g-list" href="#">
+                            <div class="img-hover">
+                                <img src="{% static 'images/services/thumbnails/thumbnail.jpg' %}" alt="" class="img-responsive">
+                            </div>
+
+                            <div class="info-gallery">
+                                <h3>Bathroom Deep Cleaning</h3>
+                                <hr class="separator">
+                                <p>Bathroom Deep Cleaning</p>
+                                <div class="content-btn"><a href="#"
+                                        class="btn btn-primary">Book Now</a></div>
+                                <div class="price"><span>&#36;</span><b>From</b>233</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="g-list" href="#">
+                            <div class="img-hover">
+                                <img src="{% static 'images/services/thumbnails/thumbnail.jpg' %}" alt="" class="img-responsive">
+                            </div>
+
+                            <div class="info-gallery">
+                                <h3>Floor Scrubbing &amp; Polishing</h3>
+                                <hr class="separator">
+                                <p>Floor Scrubbing &amp; Polishing</p>
+                                <div class="content-btn"><a href="#"
+                                        class="btn btn-primary">Book Now</a></div>
+                                <div class="price"><span>&#36;</span><b>From</b>411</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="g-list" href="#">
+                            <div class="img-hover">
+                                <img src="{% static 'images/services/thumbnails/thumbnail.jpg' %}" alt="" class="img-responsive">
+                            </div>
+
+                            <div class="info-gallery">
+                                <h3>Mattress Shampooing</h3>
+                                <hr class="separator">
+                                <p>Mattress Shampooing</p>
+                                <div class="content-btn"><a href="#"
+                                        class="btn btn-primary">Book Now</a></div>
+                                <div class="price"><span>&#36;</span><b>From</b>222</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="g-list" href="#">
+                            <div class="img-hover">
+                                <img src="{% static 'images/services/thumbnails/thumbnail.jpg' %}" alt="" class="img-responsive">
+                            </div>
+
+                            <div class="info-gallery">
+                                <h3>Kitchen Deep Cleaning</h3>
+                                <hr class="separator">
+                                <p>Kitchen Deep Cleaning</p>
+                                <div class="content-btn"><a href="#"
+                                        class="btn btn-primary">Book Now</a></div>
+                                <div class="price"><span>&#36;</span><b>From</b>111</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endblock body %}

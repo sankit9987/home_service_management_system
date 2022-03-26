@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+       <div class="section-title-01 honmob">
+            <div class="bg_parallax image_02_parallax"></div>
+            <div class="opacy_bg_02">
+                <div class="container">
+                    <h1>My Booking</h1>
+                    <div class="crumbs">
+                        <ul>
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li>/</li>
+                            <li>My-Booking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row ">
+                {% for s in s %}
+                <div class="col-lg-4 py-2">
+                    <div class="card" style="width: 18rem;">
+                         {% comment %} <div class="card-header">
+                            {{s.ser.title}}
+                        </div>  {% endcomment %}
+                        <img class="card-img-top" src="{{s.ser.image.url}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{s.title}}</h5>
+                            <h5 class="card-title">Price :{{s.ser.price}} $</h5>
+                            <p class="card-text">{{s.ser.description}}</p>
+                            <a href="#" class="btn btn-primary">View</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endblock body %}

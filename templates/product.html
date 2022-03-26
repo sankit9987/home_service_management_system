@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+{% for s in s %}
+<div class="section-title-01 honmob">
+    <div class="bg_parallax image_02_parallax"></div>
+        <div class="opacy_bg_02">
+            <div class="container">
+                <h1>Result from</h1>
+                <div class="crumbs">
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li>/</li>
+                        <li>{{s.service_sub_category.sub_category_name}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row ">
+        <div class="col-lg-4 py-2">
+            <div class="card" style="width: 18rem;">
+                {% comment %} <div class="card-header">
+                    {{s.title}}
+                </div> {% endcomment %}
+                <img class="card-img-top" src="{{s.image.url}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{s.title}}</h5>
+                    <h5 class="card-title">Price :{{s.price}} $</h5>
+                    <p class="card-text">{{s.description}}</p>
+                    <a href="{% url 'service_details' s.id %}" class="btn btn-primary">View</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endfor %}
+{% endblock body %}

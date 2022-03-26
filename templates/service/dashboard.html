@@ -1,0 +1,29 @@
+{% extends 'service/base.html' %}
+
+{% block body %}
+<div class="container">
+                <div class="row ">
+                        <div class="col-lg-3 m-4 col-xl-3 bg-dark d-flex" style="height:40vh;     background-image: linear-gradient(to right, #f85108, #f4ad3c); box-shadow: 2px 2px 5px rgb(0 0 0 / 30%) !important;"> 
+                                <div style="padding: 36px 12%;     color: white;
+                                font-size: 20px;">
+                                        Total Services!<br>
+                                        <p style="font-size: 40px;">{{s}}</p>
+                                        <p><a href="{% url 'view_service' %}" class="btn btn-light text-dark">View All</a></p>
+                                </div>
+                                <div  style="padding: 36px 0%;" >
+                                <i class="fa fa-home" style="font-size:59px; color:white;" aria-hidden="true"></i>
+                                </div>
+                        </div>
+                        <div class="col-lg-3 m-4 col-xl-3 bg-dark d-flex" style="height:40vh;     background-image: linear-gradient(to right, #129021, #1ed41e); box-shadow: 2px 2px 5px rgb(0 0 0 / 30%) !important;"> 
+                                <div style="padding: 36px 12%;     color: white;
+                                font-size: 20px;">
+                                        Total Order!<br>
+                                        <p style="font-size: 40px;">{{b}}</p>
+                                        <p><a href="{% url 'order' %}" class="btn btn-light text-dark">View All</a></p>
+                                </div>
+                                <div  style="padding: 36px 0%;" >
+                                <i class="fa fa-address-book" style="font-size:59px; color:white;" aria-hidden="true"></i>
+                                </div>
+                        </div>
+</div>
+{% endblock body %}

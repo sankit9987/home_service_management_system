@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <div id="layout">
+        
+        <div class="section-title-01 honmob">
+            <div class="bg_parallax image_02_parallax"></div>
+            <div class="opacy_bg_02">
+                <div class="container">
+                    <h1>Contact Us</h1>
+                    <div class="crumbs">
+                        <ul>
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li>/</li>
+                            <li>Contact Us</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-central">
+            <div class="semiboxshadow text-center">
+                <img src="img/img-theme/shp.png" class="img-responsive" alt="">
+            </div>
+            
+            <div class="content_info">
+                <div class="paddings-mini">
+                    <div class="container">
+                        <div class="row">
+                            
+                            <div class="col-md-8">
+                                <h3>Contact Form</h3>
+                                <p class="lead">
+                                </p>
+                                <form id="contactform" class="form-theme" action="http://localhost:8000/sendcontactmail"
+                                    method="post">
+                                    <input type="hidden" name="_token" value="2NHPrBqKScv73zvhqc7UbyDOvtsWZNm2dbOyAkqx">
+                                    <input type="text" placeholder="Name" name="name" id="name" required="">
+                                    <input type="email" placeholder="Email" name="email" id="email" required="">
+                                    <input type="text" placeholder="Phone" name="phone" id="phone" required="">
+                                    <input type="text" placeholder="Location" name="location" id="autocomplete"
+                                        required="">
+                                    <textarea placeholder="Your Message" name="message" id="message"
+                                        required=""></textarea>
+                                    <input type="submit" name="Submit" value="Send Message" class="btn btn-primary">
+                                </form>
+                                <div id="result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-twitter content_resalt border-top">
+                <i class="fa fa-twitter icon-big"></i>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-center">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="maps/api/js?key=AIzaSyDUivMJTPZn0DVMCnTmeOxPEAC6kSuplwU&libraries=places&callback=initAutocomplete"
+            async="" defer=""></script>
+    </div>
+{% endblock body %}

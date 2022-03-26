@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+{% for s in s %}
+{% if messages %}
+       {% for msg in messages %} 
+       <h3 class="text-center text-danger" id="alert">{{msg}} </h3>
+    {% endfor %}
+       {% endif %}
+    <div id="layout">
+        
+        
+        <div class="section-title-01 honmob">
+            <div class="bg_parallax image_01_parallax"></div>
+            <div class="opacy_bg_02">
+                <div class="container">
+                    <h1>{{s.title}}</h1>
+                    <div class="crumbs">
+                        <ul>
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li>/</li>
+                            <li>{{s.title}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="content-central">
+            <div class="semiboxshadow text-center">
+                <img src="img/img-theme/shp.png" class="img-responsive" alt="">
+            </div>
+            <div class="content_info">
+                <div class="paddings-mini">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 single-blog">
+                                <div class="post-item">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="post-header">
+                                                <div class="post-format-icon post-format-standard"
+                                                    style="margin-top: -10px;">
+                                                    <i class="fa fa-image"></i>
+                                                </div>
+                                                <div class="post-info-wrap">
+                                                    <h2 class="post-title"><a href="#" title="Post Format: Standard"
+                                                            rel="bookmark">{{s.title}}: {{s.category.name}}</a></h2>
+                                                    <div class="post-meta" style="height: 10px;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div id="single-carousel">
+                                                <div class="img-hover">
+                                                    <img src="images/services/service.jpg" alt=""
+                                                        class="img-responsive">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="post-content">
+                                                <h3>{{s.title}}</h3>
+                                                <p>{{s.description}}</p>
+                                                <h4>Inclusion</h4>
+                                                <p> {{s.feature}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <aside class="widget" style="margin-top: 18px;">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Booking Details</div>
+                                        <div class="panel-body">
+                                            <table class="table">
+                                                <tr>
+                                                    <td style="border-top: none;">Price</td>
+                                                    <td style="border-top: none;"><span>&#36;</span> {{s.price}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Quntity</td>
+                                                    <td>{{s.quantity}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Discount</td>
+                                                    <td>{{s.discount}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Total</td>
+                                                    <td><span>&#36;</span> {{s.total}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="panel-footer">  
+                                            <form action="{% url 'booking' %}" method='post'>
+                                                {% csrf_token %}   
+                                                <input type="hidden" name="amount" value="{{s.total}}">
+                                                <input type="hidden" name="service" value="{{s.id}}">
+                                                <input type="hidden" name="service_pro" value="{{s.user}}">
+                                                
+                                                                                            
+                                                <input type="submit" value="Book Now"  class="btn btn-primary" >
+                                            </form>
+                                        </div>
+                                    </div>
+                                </aside>
+                                <aside>
+                                    <h3>Feature Image</h3>
+                                    <div class="col-md-12 col-sm-6 col-xs-12 bg-dark color-white padding-top-mini"
+                                        style="max-width: 360px">
+                                        
+                                            <div class="img-hover">
+                                                <img src="{{s.image.url}}" alt=""
+                                                    class="img-responsive">
+                                            </div>
+                                        
+                                    </div>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </section>
+        
+    </div>
+    {% endfor %}
+{% endblock body %}
